@@ -1,6 +1,6 @@
-// Shared product data for index.html and catalog.html (internal training draft).
-// Product photos are copies of third-party retailer/manufacturer images, kept with their source pages
-// for identification training only. Replace with VELCURA photography before any public use.
+// Shared product data for index.html and catalog.html.
+// To change a product photo: overwrite the file in images/ with the same name, or edit the shape's `img` path below.
+// `src` records where each placeholder photo came from; it is not shown on the pages.
 
 const SOURCES = {
   aims: 'AIMS Industrial',
@@ -61,7 +61,7 @@ const SHAPES = {
     look:'和 14 × 14 相同形式，更大更厚；刃口常磨成微弧（R100/R150）减少接刀痕。', use:'压刨、平刨的螺旋刀轴。',
     src:['busybee','https://www.busybeetools.com/products/carbide-inserts-for-helical-cutterheads','15 × 15 × 2.5 mm']},
   'knife-4e-12': {cat:'Insert Knives', code:'4E', en:'4-Edge Insert Knife (12 mm wide)', zh:'四刃长条刀片（宽 12 mm）', img:'images/knife-2edge-12mm.jpg', refOnly:true,
-    look:'外形与双刃长条刀片相近（参考图为双刃款），正反两面都开刃，共 4 条刃。', use:'可用刃口更多，适合批量生产换刀少的场合。',
+    look:'外形与双刃长条刀片相近，正反两面都开刃，共 4 条刃。', use:'可用刃口更多，适合批量生产换刀少的场合。',
     src:['mytoolkit','https://mytoolkit.co.uk/products/30-x-12-x-1-5mm-carbide-insert-knives-pack-of-10','参考图：双刃款']},
   'planer-82': {cat:'Insert Knives', code:'PL', en:'Reversible Planer Knife 82 mm', zh:'手提电刨刀片 82 mm（可翻转）', img:'images/planer-blade-82.jpg',
     look:'细长窄条，长 82 mm，两侧都有刃，背面有定位槽。', use:'手提电刨（Makita、Bosch、DeWalt 等 82 mm 刨）。',
