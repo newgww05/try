@@ -1,0 +1,4 @@
+# Site under construction - please do not crawl or index.
+# When ready to launch: replace with "Allow: /" and remove the noindex meta tags in the HTML pages.
+User-agent: *
+Disallow: /
