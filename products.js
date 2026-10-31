@@ -46,6 +46,18 @@ const SHAPES = {
   'burr-k': {cat:'Rotary Burrs', code:'K', en:'90° Cone Burr', zh:'90° 锥形旋转锉', img:'images/burr-k-cone-90.jpg',
     look:'短锥形，锥角 90°（比 60° 钝）。', use:'孔口 90° 倒角、锪孔、去毛刺。',
     src:['aims','https://aimsindustrial.com.au/products/pferd-burr-conical-included-angle-shank-ksk-c3','PFERD KSK']},
+  'burr-l': {cat:'Rotary Burrs', code:'L', en:'Taper Radius-End Burr', zh:'球头锥形旋转锉', img:'images/burr-l-taper-radius.jpg',
+    look:'细长锥形，头部是圆的，比圆头树形更长、更细。', use:'斜面带圆角、深腔和模具型腔修整。',
+    src:['aims','https://aimsindustrial.com.au/products/sutton-b207-carbide-burr-taper-shape-radius-end-double-cut','Sutton B207']},
+  'burr-m': {cat:'Rotary Burrs', code:'M', en:'Pointed Cone Burr', zh:'尖头锥形旋转锉', img:'images/burr-m-pointed-cone.jpg',
+    look:'细长锥形，头部是尖的。', use:'斜面、窄槽、尖角处去料。',
+    src:['aims','https://aimsindustrial.com.au/products/sutton-b208-carbide-burr-cone-shape-double-cut','Sutton B208']},
+  'burr-n': {cat:'Rotary Burrs', code:'N', en:'Inverted Cone Burr', zh:'倒锥形旋转锉', img:'images/burr-n-inverted-cone.jpg',
+    look:'倒过来的锥形：靠柄处细，端面最大。', use:'燕尾槽、背面倒角、V 形焊缝坡口。',
+    src:['aims','https://aimsindustrial.com.au/products/sutton-b209-carbide-burr-inverted-cone-shape-double-cut','Sutton B209']},
+  'burr-alu': {cat:'Rotary Burrs', code:'AL', en:'Aluminium-Cut Burr', zh:'铝用大齿旋转锉', img:'images/burr-a-alu-cut.jpg',
+    look:'齿少、齿槽深而宽，看起来比双齿纹稀疏。', use:'铝、铜、塑料等软材料，排屑好、不粘屑。',
+    src:['aims','https://aimsindustrial.com.au/products/sutton-b215-carbide-burr-cylindrical-square-end-aluminium-cut','Sutton B215']},
 
   // ---- Woodworking insert knives ----
   'knife-2e-12': {cat:'Insert Knives', code:'2E', en:'2-Edge Insert Knife (12 mm wide)', zh:'双刃可翻转刀片（宽 12 mm）', img:'images/knife-2edge-12mm.jpg',
@@ -108,6 +120,17 @@ const PRODUCTS = [
   ['VCRB-G0618','burr-g','Head 6 × 18 mm · 6 mm shank · OAL 50 mm'],['VCRB-G1025','burr-g','Head 10 × 25 mm · 6 mm shank · OAL 65 mm'],
   ['VCRB-H0618','burr-h','Head 6 × 18 mm · 6 mm shank · OAL 50 mm'],['VCRB-H1025','burr-h','Head 10 × 25 mm · 6 mm shank · OAL 65 mm'],
   ['VCRB-J0611','burr-j','Head 6 × 11 mm · 6 mm shank · OAL 50 mm'],['VCRB-K0613','burr-k','Head 6 × 13 mm · 6 mm shank · OAL 50 mm'],
+  ['VCRB-L0618','burr-l','Head 6 × 18 mm · 6 mm shank · OAL 50 mm'],['VCRB-L1025','burr-l','Head 10 × 25 mm · 6 mm shank · OAL 65 mm'],
+  ['VCRB-M0618','burr-m','Head 6 × 18 mm · 6 mm shank · OAL 50 mm'],['VCRB-M1020','burr-m','Head 10 × 20 mm · 6 mm shank · OAL 60 mm'],
+  ['VCRB-N1213','burr-n','Head 12 × 13 mm · 6 mm shank · OAL 55 mm'],
+  // 3 mm shank miniature burrs (die grinders and pencil grinders)
+  ['VCRB-A0313','burr-a','Head 3 × 13 mm · 3 mm shank · OAL 38 mm'],['VCRB-D0303','burr-d','Head Ø3 mm · 3 mm shank · OAL 38 mm'],
+  ['VCRB-F0313','burr-f','Head 3 × 13 mm · 3 mm shank · OAL 38 mm'],['VCRB-G0313','burr-g','Head 3 × 13 mm · 3 mm shank · OAL 38 mm'],
+  // 1/4" shank and long-shank versions
+  ['VCRB-C1020-I','burr-c','Head 10 × 20 mm · 6.35 mm (1/4") shank · OAL 64 mm'],['VCRB-F1020-I','burr-f','Head 10 × 20 mm · 6.35 mm (1/4") shank · OAL 64 mm'],
+  ['VCRB-C1020-L150','burr-c','Head 10 × 20 mm · 6 mm shank · OAL 150 mm long shank'],['VCRB-F1020-L150','burr-f','Head 10 × 20 mm · 6 mm shank · OAL 150 mm long shank'],
+  // Aluminium cut for non-ferrous metals and plastics
+  ['VCRB-AL1020','burr-alu','Head 10 × 20 mm · 6 mm shank · OAL 60 mm · aluminium cut'],['VCRB-AL1225','burr-alu','Head 12 × 25 mm · 6 mm shank · OAL 65 mm · aluminium cut'],
 
   ['VCWK-201215','knife-2e-12','20 × 12 × 1.5 mm · 35°'],['VCWK-251215','knife-2e-12','25 × 12 × 1.5 mm · 35°'],['VCWK-301215','knife-2e-12','30 × 12 × 1.5 mm · 35°'],['VCWK-351215','knife-2e-12','35 × 12 × 1.5 mm · 35°'],['VCWK-401215','knife-2e-12','40 × 12 × 1.5 mm · 35°'],['VCWK-501215','knife-2e-12','50 × 12 × 1.5 mm · 35°'],['VCWK-601215','knife-2e-12','60 × 12 × 1.5 mm · 35°'],
   ['VCWK-801322','knife-2e-13','80 × 13 × 2.2 mm'],['VCWK-1001322','knife-2e-13','100 × 13 × 2.2 mm'],
