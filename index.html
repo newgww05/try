@@ -118,7 +118,7 @@
   <script>
     // ===== Inquiry form → velcura.top inquiry Worker (Cloudflare Email Routing) =====
     (function () {
-      const CONTACT_ENDPOINT = 'https://velcura-top-inquiry.newgww05.workers.dev';
+      const CONTACT_ENDPOINT = 'https://inquiry.velcura.top';
       const INBOX = 'info@velcura.top';
       const form = document.getElementById('inquiry-form');
       if (!form) return;
@@ -172,14 +172,16 @@
         }
         const d = payload();
         btn.disabled = true; btn.textContent = 'Sending…'; msg.className = 'form-msg'; msg.textContent = '';
-        fetch(CONTACT_ENDPOINT, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(d)})
+        // 15 秒无响应就退回邮件方式，避免网络受限时一直卡住
+        const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 15000);
+        fetch(CONTACT_ENDPOINT, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(d), signal: ctrl.signal})
           .then(res => res.json().then(data => ({ok: res.ok && data && data.ok})))
           .then(r => {
             if (r.ok) { msg.className = 'form-msg success'; msg.textContent = 'Thank you – your inquiry has been sent. We will reply within one business day.'; form.reset(); }
             else mailtoFallback(d);
           })
           .catch(() => mailtoFallback(d))
-          .finally(() => { btn.disabled = false; btn.textContent = 'Send Inquiry'; });
+          .finally(() => { clearTimeout(timer); btn.disabled = false; btn.textContent = 'Send Inquiry'; });
       });
     })();
   </script>
