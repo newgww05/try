@@ -1,6 +1,7 @@
 // Shared product data for index.html and catalog.html.
 // To change a product photo: overwrite the file in images/ with the same name, or edit the shape's `img` path below.
 // `src` records where each placeholder photo came from; it is not shown on the pages.
+// A product's optional 4th field `ref` is the industry code buyers search by (e.g. SA-1); it is shown on catalog cards.
 
 const SOURCES = {
   aims: 'AIMS Industrial',
@@ -58,6 +59,9 @@ const SHAPES = {
   'burr-alu': {cat:'Rotary Burrs', code:'AL', en:'Aluminium-Cut Burr', zh:'铝用大齿旋转锉', img:'images/burr-a-alu-cut.jpg',
     look:'齿少、齿槽深而宽，看起来比双齿纹稀疏。', use:'铝、铜、塑料等软材料，排屑好、不粘屑。',
     src:['aims','https://aimsindustrial.com.au/products/sutton-b215-carbide-burr-cylindrical-square-end-aluminium-cut','Sutton B215']},
+  'burr-set': {cat:'Rotary Burrs', code:'SET', en:'Rotary Burr Set', zh:'旋转锉套装', img:'images/burr-set.png',
+    look:'一盒装多支最常用的形状，每支一个插位。', use:'经销商货架、维修车间、焊接和铸件清理的入门配置。',
+    src:['user','','销售资料图片']},
 
   // ---- Woodworking insert knives ----
   'knife-2e-12': {cat:'Insert Knives', code:'2E', en:'2-Edge Insert Knife (12 mm wide)', zh:'双刃可翻转刀片（宽 12 mm）', img:'images/knife-2edge-12mm.jpg',
@@ -109,7 +113,50 @@ const CATEGORIES = {
   'Router Bits': {zh:'硬质合金木工铣刀', field:'木工', prefix:'VCRT'}
 };
 
-// [sku, shape key, spec]
+// Internal reference prices (estimates, Oct 2026), shown only on catalog.html?prices=1.
+// cn = 1688 / China purchase (RMB, ex-factory, per piece unless noted); online = Amazon / web retail (USD);
+// west = Europe / US offline shop or distributor price (USD); india = Indian offline market (INR).
+// Anchors: Jinxin & Up FOB listings, Amazon/Walmart sets, Burrs4Less, AA Abrasives, Cromwell, AIMS, Carbatec, Mumbai dealers, IndiaMART.
+const PRICE_TIERS = {
+  'burr-mini':   {cn:'¥3–8',       online:'$3–6',     west:'$5–9',     india:'₹60–120'},
+  'burr-s':      {cn:'¥6–12',      online:'$5–10',    west:'$9–20',    india:'₹120–200'},
+  'burr-m':      {cn:'¥10–18',     online:'$7–14',    west:'$14–28',   india:'₹150–260'},
+  'burr-l':      {cn:'¥15–30',     online:'$10–20',   west:'$18–45',   india:'₹250–450'},
+  'burr-long':   {cn:'¥18–35',     online:'$14–28',   west:'$25–55',   india:'₹350–650'},
+  'burr-alu':    {cn:'¥12–25',     online:'$12–24',   west:'$20–45',   india:'₹250–450'},
+  'set-5':       {cn:'¥45–90 / set',  online:'$18–30',  west:'$45–90',   india:'₹900–1,800'},
+  'set-8':       {cn:'¥70–140 / set', online:'$22–40',  west:'$70–140',  india:'₹1,400–2,800'},
+  'set-10-mini': {cn:'¥25–50 / set',  online:'$12–25',  west:'$35–70',   india:'₹600–1,200'},
+  'set-10-6':    {cn:'¥80–160 / set', online:'$25–45',  west:'$70–150',  india:'₹1,500–3,000'},
+  'knife-short': {cn:'¥3–6',       online:'$2.5–4',   west:'$3.5–6',   india:'₹80–150'},
+  'knife-mid':   {cn:'¥6–10',      online:'$3.5–6',   west:'$5–8',     india:'₹120–220'},
+  'knife-80':    {cn:'¥15–25',     online:'$8–14',    west:'$12–20',   india:'₹300–500'},
+  'knife-100':   {cn:'¥20–32',     online:'$10–17',   west:'$15–25',   india:'₹400–650'},
+  'knife-4e':    {cn:'¥5–12',      online:'$4–7',     west:'$6–10',    india:'₹150–260'},
+  'insert-14':   {cn:'¥3–5',       online:'$2.5–4',   west:'$5–9',     india:'₹80–150'},
+  'insert-15':   {cn:'¥4–7',       online:'$3–5',     west:'$6–10',    india:'₹100–180'},
+  'planer-82':   {cn:'¥15–30 / pair', online:'$15–30 / pair', west:'$25–45 / pair', india:'₹500–900 / pair'},
+  'router-s':    {cn:'¥12–30',     online:'$12–25',   west:'$25–50',   india:'₹300–700'},
+  'router-l':    {cn:'¥25–60',     online:'$20–45',   west:'$35–75',   india:'₹600–1,400'}
+};
+function priceClass(sku, shape, spec) {
+  if (shape === 'burr-set') return {'VCRB-SET5-I':'set-5', 'VCRB-SET8-I':'set-8', 'VCRB-SET10-M':'set-10-mini'}[sku] || 'set-10-6';
+  if (shape.startsWith('burr')) {
+    if (/long shank/.test(spec)) return 'burr-long';
+    if (/(^|· )(3 mm|1\/8") shank/.test(spec)) return 'burr-mini';
+    if (shape === 'burr-alu' || /aluminium cut/.test(spec)) return 'burr-alu';
+    const head = spec.match(/Head Ø?([\d./]+)(")?/);
+    const mm = !head ? 10 : head[2] ? eval(head[1]) * 25.4 : parseFloat(head[1]);
+    return mm <= 6.5 ? 'burr-s' : mm <= 10 ? 'burr-m' : 'burr-l';
+  }
+  if (shape === 'knife-2e-12') return parseInt(spec) >= 50 ? 'knife-mid' : 'knife-short';
+  if (shape === 'knife-2e-13') return parseInt(spec) >= 100 ? 'knife-100' : 'knife-80';
+  if (shape === 'knife-4e-12') return 'knife-4e';
+  if (shape === 'insert-14' || shape === 'insert-15' || shape === 'planer-82') return shape;
+  return /(12|12\.7) mm shank/.test(spec) ? 'router-l' : 'router-s';
+}
+
+// [sku, shape key, spec, industry ref?]
 const PRODUCTS = [
   ['VCRB-A0618','burr-a','Head 6 × 18 mm · 6 mm shank · OAL 50 mm'],['VCRB-A1020','burr-a','Head 10 × 20 mm · 6 mm shank · OAL 60 mm'],['VCRB-A1225','burr-a','Head 12 × 25 mm · 6 mm shank · OAL 65 mm'],
   ['VCRB-B0618','burr-b','Head 6 × 18 mm · 6 mm shank · OAL 50 mm'],['VCRB-B1020','burr-b','Head 10 × 20 mm · 6 mm shank · OAL 60 mm'],
@@ -131,6 +178,24 @@ const PRODUCTS = [
   ['VCRB-C1020-L150','burr-c','Head 10 × 20 mm · 6 mm shank · OAL 150 mm long shank'],['VCRB-F1020-L150','burr-f','Head 10 × 20 mm · 6 mm shank · OAL 150 mm long shank'],
   // Aluminium cut for non-ferrous metals and plastics
   ['VCRB-AL1020','burr-alu','Head 10 × 20 mm · 6 mm shank · OAL 60 mm · aluminium cut'],['VCRB-AL1225','burr-alu','Head 12 × 25 mm · 6 mm shank · OAL 65 mm · aluminium cut'],
+  // Inch line for North America: industry-standard SA-SN codes, 1/4" shank (series 1 / 3 / 5 = 1/4" / 3/8" / 1/2" head)
+  ['VCRB-SA1','burr-a','Head 1/4" × 5/8" · 1/4" shank · OAL 2"','SA-1'],['VCRB-SA3','burr-a','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SA-3'],['VCRB-SA5','burr-a','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SA-5'],
+  ['VCRB-SC1','burr-c','Head 1/4" × 5/8" · 1/4" shank · OAL 2"','SC-1'],['VCRB-SC3','burr-c','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SC-3'],['VCRB-SC5','burr-c','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SC-5'],
+  ['VCRB-SD1','burr-d','Head Ø1/4" · 1/4" shank · OAL 2"','SD-1'],['VCRB-SD3','burr-d','Head Ø3/8" · 1/4" shank · OAL 2"','SD-3'],['VCRB-SD5','burr-d','Head Ø1/2" · 1/4" shank · OAL 2"','SD-5'],
+  ['VCRB-SF3','burr-f','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SF-3'],['VCRB-SF5','burr-f','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SF-5'],
+  ['VCRB-SG3','burr-g','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SG-3'],['VCRB-SG5','burr-g','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SG-5'],
+  ['VCRB-SH5','burr-h','Head 1/2" × 1-1/4" · 1/4" shank · OAL 3"','SH-5'],['VCRB-SL1','burr-l','Head 1/4" × 1/2" · 1/4" shank · OAL 2"','SL-1'],
+  ['VCRB-SA5-L6','burr-a','Head 1/2" × 1" · 1/4" shank · OAL 6" (150 mm) long shank','SA-5L6'],['VCRB-SF5-L6','burr-f','Head 1/2" × 1" · 1/4" shank · OAL 6" (150 mm) long shank','SF-5L6'],
+  ['VCRB-SA5-AL','burr-alu','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4" · aluminium cut','SA-5 Alu'],
+  // 1/8" shank miniatures for pencil grinders, flex shafts and rotary tools (1/8" = 3.175 mm, not 3 mm)
+  ['VCRB-SA-M18','burr-a','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],['VCRB-SC-M18','burr-c','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],
+  ['VCRB-SD-M18','burr-d','Head Ø1/8" · 1/8" shank · OAL 1-1/2"','1/8" mini'],['VCRB-SF-M18','burr-f','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],
+  ['VCRB-SH-M18','burr-h','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],
+  // Sets
+  ['VCRB-SET5-I','burr-set','5 pcs: SA-3, SC-3, SD-3, SF-3, SH-3 · 1/4" shank · double cut · plastic case','Set'],
+  ['VCRB-SET8-I','burr-set','8 pcs: SA, SC, SD, SE, SF, SG, SH, SL · 3/8" heads · 1/4" shank · double cut','Set'],
+  ['VCRB-SET10-M','burr-set','10 pcs 1/8" shank miniatures · mixed shapes · double cut','Set'],
+  ['VCRB-SET10-6','burr-set','10 pcs 6 mm shank · A–N common shapes · double cut · metric markets','Set'],
 
   ['VCWK-201215','knife-2e-12','20 × 12 × 1.5 mm · 35°'],['VCWK-251215','knife-2e-12','25 × 12 × 1.5 mm · 35°'],['VCWK-301215','knife-2e-12','30 × 12 × 1.5 mm · 35°'],['VCWK-351215','knife-2e-12','35 × 12 × 1.5 mm · 35°'],['VCWK-401215','knife-2e-12','40 × 12 × 1.5 mm · 35°'],['VCWK-501215','knife-2e-12','50 × 12 × 1.5 mm · 35°'],['VCWK-601215','knife-2e-12','60 × 12 × 1.5 mm · 35°'],
   ['VCWK-801322','knife-2e-13','80 × 13 × 2.2 mm'],['VCWK-1001322','knife-2e-13','100 × 13 × 2.2 mm'],
@@ -145,4 +210,4 @@ const PRODUCTS = [
   ['VCRT-C45-12','rt-chamfer','Ø12.7 mm · 6.35 mm shank'],['VCRT-C45-25','rt-chamfer','Ø25.4 mm · 12.7 mm shank'],
   ['VCRT-V90-12','rt-vgroove','Ø12.7 mm · 6.35 mm shank'],['VCRT-V90-19','rt-vgroove','Ø19 mm · 12.7 mm shank'],
   ['VCRT-RAB12','rt-rabbet','12.7 mm cutting depth · 12.7 mm shank']
-].map(([sku,shape,spec])=>({sku,shape,spec,...SHAPES[shape]}));
+].map(([sku,shape,spec,ref])=>({sku,shape,spec,ref,...SHAPES[shape],price:PRICE_TIERS[priceClass(sku,shape,spec)]}));
