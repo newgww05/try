@@ -56,9 +56,9 @@ const SHAPES = {
   'burr-n': {cat:'Rotary Burrs', code:'N', en:'Inverted Cone Burr', zh:'倒锥形旋转锉', img:'images/burr-n-inverted-cone.jpg',
     look:'倒过来的锥形：靠柄处细，端面最大。', use:'燕尾槽、背面倒角、V 形焊缝坡口。',
     src:['aims','https://aimsindustrial.com.au/products/sutton-b209-carbide-burr-inverted-cone-shape-double-cut','Sutton B209']},
-  'burr-alu': {cat:'Rotary Burrs', code:'AL', en:'Aluminium-Cut Burr', zh:'铝用大齿旋转锉', img:'images/burr-a-alu-cut.jpg',
+  'burr-alu': {cat:'Rotary Burrs', code:'AL', en:'Aluminum-Cut Burr', zh:'铝用大齿旋转锉', img:'images/burr-a-alu-cut.jpg',
     look:'齿少、齿槽深而宽，看起来比双齿纹稀疏。', use:'铝、铜、塑料等软材料，排屑好、不粘屑。',
-    src:['aims','https://aimsindustrial.com.au/products/sutton-b215-carbide-burr-cylindrical-square-end-aluminium-cut','Sutton B215']},
+    src:['aims','https://aimsindustrial.com.au/products/sutton-b215-carbide-burr-cylindrical-square-end-aluminum-cut','Sutton B215']},
   'burr-set': {cat:'Rotary Burrs', code:'SET', en:'Rotary Burr Set', zh:'旋转锉套装', img:'images/burr-set.png',
     look:'一盒装多支最常用的形状，每支一个插位。', use:'经销商货架、维修车间、焊接和铸件清理的入门配置。',
     src:['user','','销售资料图片']},
@@ -144,7 +144,7 @@ function priceClass(sku, shape, spec) {
   if (shape.startsWith('burr')) {
     if (/long shank/.test(spec)) return 'burr-long';
     if (/(^|· )(3 mm|1\/8") shank/.test(spec)) return 'burr-mini';
-    if (shape === 'burr-alu' || /aluminium cut/.test(spec)) return 'burr-alu';
+    if (shape === 'burr-alu' || /aluminum cut/.test(spec)) return 'burr-alu';
     const head = spec.match(/Head Ø?([\d./]+)(")?/);
     const mm = !head ? 10 : head[2] ? eval(head[1]) * 25.4 : parseFloat(head[1]);
     return mm <= 6.5 ? 'burr-s' : mm <= 10 ? 'burr-m' : 'burr-l';
@@ -176,8 +176,8 @@ const PRODUCTS = [
   // 1/4" shank and long-shank versions
   ['VCRB-C1020-I','burr-c','Head 10 × 20 mm · 6.35 mm (1/4") shank · OAL 64 mm'],['VCRB-F1020-I','burr-f','Head 10 × 20 mm · 6.35 mm (1/4") shank · OAL 64 mm'],
   ['VCRB-C1020-L150','burr-c','Head 10 × 20 mm · 6 mm shank · OAL 150 mm long shank'],['VCRB-F1020-L150','burr-f','Head 10 × 20 mm · 6 mm shank · OAL 150 mm long shank'],
-  // Aluminium cut for non-ferrous metals and plastics
-  ['VCRB-AL1020','burr-alu','Head 10 × 20 mm · 6 mm shank · OAL 60 mm · aluminium cut'],['VCRB-AL1225','burr-alu','Head 12 × 25 mm · 6 mm shank · OAL 65 mm · aluminium cut'],
+  // Aluminum cut for non-ferrous metals and plastics
+  ['VCRB-AL1020','burr-alu','Head 10 × 20 mm · 6 mm shank · OAL 60 mm · aluminum cut'],['VCRB-AL1225','burr-alu','Head 12 × 25 mm · 6 mm shank · OAL 65 mm · aluminum cut'],
   // Inch line for North America: industry-standard SA-SN codes, 1/4" shank (series 1 / 3 / 5 = 1/4" / 3/8" / 1/2" head)
   ['VCRB-SA1','burr-a','Head 1/4" × 5/8" · 1/4" shank · OAL 2"','SA-1'],['VCRB-SA3','burr-a','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SA-3'],['VCRB-SA5','burr-a','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SA-5'],
   ['VCRB-SC1','burr-c','Head 1/4" × 5/8" · 1/4" shank · OAL 2"','SC-1'],['VCRB-SC3','burr-c','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SC-3'],['VCRB-SC5','burr-c','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SC-5'],
@@ -186,7 +186,7 @@ const PRODUCTS = [
   ['VCRB-SG3','burr-g','Head 3/8" × 3/4" · 1/4" shank · OAL 2-1/2"','SG-3'],['VCRB-SG5','burr-g','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4"','SG-5'],
   ['VCRB-SH5','burr-h','Head 1/2" × 1-1/4" · 1/4" shank · OAL 3"','SH-5'],['VCRB-SL1','burr-l','Head 1/4" × 1/2" · 1/4" shank · OAL 2"','SL-1'],
   ['VCRB-SA5-L6','burr-a','Head 1/2" × 1" · 1/4" shank · OAL 6" (150 mm) long shank','SA-5L6'],['VCRB-SF5-L6','burr-f','Head 1/2" × 1" · 1/4" shank · OAL 6" (150 mm) long shank','SF-5L6'],
-  ['VCRB-SA5-AL','burr-alu','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4" · aluminium cut','SA-5 Alu'],
+  ['VCRB-SA5-AL','burr-alu','Head 1/2" × 1" · 1/4" shank · OAL 2-3/4" · aluminum cut','SA-5 Alu'],
   // 1/8" shank miniatures for pencil grinders, flex shafts and rotary tools (1/8" = 3.175 mm, not 3 mm)
   ['VCRB-SA-M18','burr-a','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],['VCRB-SC-M18','burr-c','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],
   ['VCRB-SD-M18','burr-d','Head Ø1/8" · 1/8" shank · OAL 1-1/2"','1/8" mini'],['VCRB-SF-M18','burr-f','Head 1/8" × 1/2" · 1/8" shank · OAL 1-1/2"','1/8" mini'],
