@@ -123,6 +123,10 @@
       const form = document.getElementById('inquiry-form');
       if (!form) return;
       const msg = document.getElementById('form-msg');
+      // 成功提示 6 秒后自动消失；开始填写下一条询盘时也立即清除
+      let msgTimer;
+      const clearSuccess = () => { if (msg.classList.contains('success')) { msg.className = 'form-msg'; msg.textContent = ''; } };
+      form.addEventListener('input', clearSuccess);
       const btn = form.querySelector('button[type="submit"]');
       const field = name => form.elements[name];
 
@@ -177,7 +181,7 @@
         fetch(CONTACT_ENDPOINT, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(d), signal: ctrl.signal})
           .then(res => res.json().then(data => ({ok: res.ok && data && data.ok})))
           .then(r => {
-            if (r.ok) { msg.className = 'form-msg success'; msg.textContent = 'Thank you – your inquiry has been sent. We will reply within one business day.'; form.reset(); }
+            if (r.ok) { msg.className = 'form-msg success'; msg.textContent = 'Thank you – your inquiry has been sent. We will reply within one business day.'; form.reset(); clearTimeout(msgTimer); msgTimer = setTimeout(clearSuccess, 6000); }
             else mailtoFallback(d);
           })
           .catch(() => mailtoFallback(d))
