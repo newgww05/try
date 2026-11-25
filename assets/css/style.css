@@ -406,3 +406,11 @@ header.site .wrap{min-width:0}
 .lang-dd:hover .lang-menu,.lang-dd.open .lang-menu{display:block}
 @media (max-width:1020px){.lang-dd{margin-left:auto}.lang-btn{padding:7px 10px}}
 @media (max-width:640px){.lang-btn span{display:none}}
+
+/* ---------- Footer contact: one line, spaced ---------- */
+.foot-contact{display:flex;align-items:center;flex-wrap:wrap;gap:10px 40px;padding:18px 0;margin-bottom:22px;border-top:1px solid #2A3741;font-size:.92rem;color:#C2CFD9}
+.foot-contact a{color:#C2CFD9}
+.foot-contact a:hover{color:#fff}
+.foot-contact em{font-style:normal;margin-left:8px;padding:2px 8px;border-radius:99px;background:#24323d;color:#9FD3C6;font-size:.78rem}
+.foot-contact .fc-quote{color:#fff;font-weight:600}
+@media (max-width:640px){.foot-contact{gap:10px 22px}}
