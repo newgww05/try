@@ -352,3 +352,16 @@ nav.main .drop .drop-h{display:block;padding:10px 12px 4px;margin-top:6px;border
 @media print{.fab{display:none}}
 .logo-img{height:38px;width:auto}
 footer.site .logo-img{height:40px}
+
+/* ---------- Phone-width robustness (all languages) ---------- */
+.grid>*,.split>*,.calc>*,.page-hero .wrap>*,.hero .wrap>*{min-width:0}
+h1,h2,h3,h4,p,li,td,th,b,.cap b,.tag{overflow-wrap:break-word}
+html[lang=de],html[lang=fr]{-webkit-hyphens:auto;hyphens:auto}
+.steps.s3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1020px){.steps.s3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  .steps.s3{grid-template-columns:1fr}
+  .scene .cap b{font-size:1.05rem}
+  .chart-card{padding:20px 16px}
+}
+.eco>*,.eco-stats>*,.stat-row>*,.cta-band>*{min-width:0}
