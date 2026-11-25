@@ -368,3 +368,11 @@ html[lang=de],html[lang=fr]{-webkit-hyphens:auto;hyphens:auto}
 .steps.s4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1020px){.steps.s4{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.steps.s4{grid-template-columns:1fr}}
+
+/* ---------- Footer logo dance (silent; settles under the Pet Pads column) ---------- */
+footer.site{position:relative;overflow:hidden}
+footer.site .brand-band.bb-footer{background:none;border:0;overflow:visible;margin-top:26px}
+footer.site .bb-footer .bb-wrap{height:120px;justify-content:flex-start;padding-left:4px}
+footer.site .bb-footer .bb-mark{height:96px}
+footer.site .bb-footer .bb-mark::before{display:none}
+@media (max-width:1020px){footer.site .bb-footer .bb-wrap{justify-content:center;padding-left:0}}
