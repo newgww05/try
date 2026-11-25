@@ -89,3 +89,13 @@
 
   var y = document.getElementById('yr'); if (y) y.textContent = new Date().getFullYear();
 })();
+
+// Language dropdown: click to open/close, click outside or Esc to close
+(function () {
+  var dd = document.querySelector('.lang-dd'); if (!dd) return;
+  var btn = dd.querySelector('.lang-btn');
+  function set(open) { dd.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(!dd.classList.contains('open')); });
+  document.addEventListener('click', function (e) { if (!dd.contains(e.target)) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();

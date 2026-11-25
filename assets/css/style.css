@@ -390,3 +390,19 @@ nav.main li.lang span{color:var(--line)}
   html[lang=de] nav.main>ul>li>a,html[lang=fr] nav.main>ul>li>a{padding:10px 8px}
 }
 header.site .wrap{min-width:0}
+
+/* ---------- Language dropdown, far right of the header ---------- */
+.lang-dd{position:relative;flex:none;margin-left:4px}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--ink-2);border-radius:999px;padding:8px 12px;font:500 .86rem var(--sans);cursor:pointer;white-space:nowrap}
+.lang-btn:hover,.lang-dd.open .lang-btn{border-color:var(--brand);color:var(--brand-deep)}
+.lang-btn .caret{transition:transform .2s}
+.lang-dd.open .lang-btn .caret{transform:rotate(180deg)}
+.lang-menu{display:none;position:absolute;right:0;top:100%;padding-top:8px;z-index:70;min-width:150px}
+.lang-menu::before{content:"";position:absolute;inset:8px 0 0 0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);z-index:-1}
+.lang-menu a{display:block;padding:9px 16px;color:var(--ink-2);font-size:.9rem;white-space:nowrap}
+.lang-menu a:first-child{margin-top:6px}.lang-menu a:last-child{margin-bottom:6px}
+.lang-menu a:hover{background:var(--bg-alt);color:var(--brand-deep)}
+.lang-menu a.cur{color:var(--brand-deep);font-weight:700}
+.lang-dd:hover .lang-menu,.lang-dd.open .lang-menu{display:block}
+@media (max-width:1020px){.lang-dd{margin-left:auto}.lang-btn{padding:7px 10px}}
+@media (max-width:640px){.lang-btn span{display:none}}
