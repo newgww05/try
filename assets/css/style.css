@@ -376,3 +376,17 @@ footer.site .bb-footer .bb-wrap{height:120px;justify-content:flex-start;padding-
 footer.site .bb-footer .bb-mark{height:96px}
 footer.site .bb-footer .bb-mark::before{display:none}
 @media (max-width:1020px){footer.site .bb-footer .bb-wrap{justify-content:center;padding-left:0}}
+
+/* ---------- No dropdown menus; inline language links ---------- */
+nav.main .drop{display:none!important}
+nav.main li.lang{display:flex;align-items:center;gap:2px;margin-left:6px;font-size:.82rem;white-space:nowrap}
+nav.main li.lang a{padding:6px 5px!important;border-radius:6px;color:var(--ink-3);font-weight:500}
+nav.main li.lang a:hover{color:var(--brand-deep);background:var(--brand-soft)}
+nav.main li.lang a.cur{color:var(--brand-deep);font-weight:700}
+nav.main li.lang span{color:var(--line)}
+@media (max-width:1020px){nav.main li.lang{margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line)}}
+@media (max-width:1400px) and (min-width:1021px){
+  html[lang=de] header.site .btn-primary.hd,html[lang=fr] header.site .btn-primary.hd{display:none}
+  html[lang=de] nav.main>ul>li>a,html[lang=fr] nav.main>ul>li>a{padding:10px 8px}
+}
+header.site .wrap{min-width:0}
