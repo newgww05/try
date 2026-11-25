@@ -371,7 +371,7 @@ html[lang=de],html[lang=fr]{-webkit-hyphens:auto;hyphens:auto}
 
 /* ---------- Footer logo dance (silent; settles under the Pet Pads column) ---------- */
 footer.site{position:relative;overflow:hidden}
-footer.site .brand-band.bb-footer{background:none;border:0;overflow:visible;margin-top:26px}
+footer.site .brand-band.bb-footer{background:none;border:0;overflow:visible;margin-top:64px}
 footer.site .bb-footer .bb-wrap{height:120px;justify-content:flex-start;padding-left:4px}
 footer.site .bb-footer .bb-mark{height:96px}
 footer.site .bb-footer .bb-mark::before{display:none}
