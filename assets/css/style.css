@@ -365,3 +365,6 @@ html[lang=de],html[lang=fr]{-webkit-hyphens:auto;hyphens:auto}
   .chart-card{padding:20px 16px}
 }
 .eco>*,.eco-stats>*,.stat-row>*,.cta-band>*{min-width:0}
+.steps.s4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1020px){.steps.s4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.steps.s4{grid-template-columns:1fr}}
