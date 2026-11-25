@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Illustration: washable underpad lining an open SUV trunk with a dog">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCEBF5"/><stop offset="1" stop-color="#F6EFE4"/></linearGradient>
+ <linearGradient id="car" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5D7486"/><stop offset="1" stop-color="#3F5262"/></linearGradient>
+ <linearGradient id="pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9CC7E6"/><stop offset="1" stop-color="#6FA8D3"/></linearGradient>
+ <pattern id="quilt" width="60" height="30" patternUnits="userSpaceOnUse"><path d="M0 15 Q15 3 30 15 T60 15" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="2" stroke-dasharray="4 4"/></pattern>
+</defs>
+<rect width="1200" height="800" fill="url(#sky)"/>
+<!-- background trees -->
+<g fill="#B9D7C9"><circle cx="90" cy="430" r="90"/><circle cx="190" cy="400" r="110"/><circle cx="1080" cy="420" r="120"/><circle cx="980" cy="450" r="80"/></g>
+<g fill="#9CC8B5"><circle cx="140" cy="470" r="70"/><circle cx="1120" cy="480" r="80"/></g>
+<rect y="560" width="1200" height="240" fill="#E7E1D6"/>
+<ellipse cx="600" cy="690" rx="470" ry="40" fill="#000" opacity=".08"/>
+<!-- car body -->
+<path d="M180 300 Q200 230 300 220 L900 220 Q1000 230 1020 300 L1040 620 Q1040 660 1000 660 L200 660 Q160 660 160 620 Z" fill="url(#car)"/>
+<!-- open hatch -->
+<path d="M250 225 L950 225 L900 80 Q890 60 860 60 L340 60 Q310 60 300 80 Z" fill="#4C6172"/>
+<path d="M330 90 L870 90 L905 200 L295 200 Z" fill="#2E3F4D" opacity=".55"/>
+<!-- trunk cavity -->
+<path d="M240 250 L960 250 L990 560 L210 560 Z" fill="#26333E"/>
+<path d="M270 270 L930 270 L950 520 L250 520 Z" fill="#31414E"/>
+<!-- washable pad lining floor and draping over bumper -->
+<path d="M255 440 L945 440 L975 560 L225 560 Z" fill="url(#pad)"/>
+<path d="M255 440 L945 440 L975 560 L225 560 Z" fill="url(#quilt)"/>
+<path d="M225 560 L975 560 L975 625 Q975 640 960 640 L240 640 Q225 640 225 625 Z" fill="#8FBDE0"/>
+<path d="M225 560 L975 560 L975 625 Q975 640 960 640 L240 640 Q225 640 225 625 Z" fill="url(#quilt)"/>
+<path d="M225 640 L975 640" stroke="#2F6E9E" stroke-width="6" stroke-linecap="round"/>
+<path d="M255 440 L945 440" stroke="#FFFFFF" stroke-width="4" stroke-opacity=".7"/>
+<!-- tail lights -->
+<rect x="170" y="330" width="40" height="110" rx="12" fill="#E07A5F"/><rect x="990" y="330" width="40" height="110" rx="12" fill="#E07A5F"/>
+<!-- dog -->
+<g transform="translate(600 300)">
+ <ellipse cx="0" cy="150" rx="120" ry="28" fill="#000" opacity=".12"/>
+ <path d="M-90 145 Q-100 40 -20 20 Q60 10 80 80 L90 145 Z" fill="#D9A066"/>
+ <path d="M-40 145 L-40 70 M40 145 L40 80" stroke="#C48A52" stroke-width="22" stroke-linecap="round"/>
+ <circle cx="40" cy="-10" r="62" fill="#E2AE77"/>
+ <path d="M-10 -40 Q-40 -90 -5 -60 Z" fill="#B97B43"/><path d="M-12 -52 Q-48 -10 -18 20 Q0 -20 -12 -52Z" fill="#B97B43"/>
+ <path d="M80 -52 Q120 -10 98 20 Q78 -20 80 -52Z" fill="#B97B43"/>
+ <ellipse cx="55" cy="22" rx="30" ry="22" fill="#F1CFA6"/>
+ <circle cx="62" cy="12" r="9" fill="#2A2A2A"/>
+ <circle cx="25" cy="-18" r="7" fill="#2A2A2A"/><circle cx="72" cy="-18" r="7" fill="#2A2A2A"/>
+ <path d="M50 34 Q62 46 74 34" fill="none" stroke="#2A2A2A" stroke-width="4" stroke-linecap="round"/>
+ <path d="M-90 120 Q-150 80 -130 40" fill="none" stroke="#D9A066" stroke-width="18" stroke-linecap="round"/>
+ <!-- muddy paw prints on pad -->
+</g>
+<g fill="#7A5C3E" opacity=".45">
+ <g transform="translate(400 500)"><ellipse cx="0" cy="8" rx="10" ry="8"/><circle cx="-10" cy="-6" r="4"/><circle cx="0" cy="-10" r="4"/><circle cx="10" cy="-6" r="4"/></g>
+ <g transform="translate(460 530)"><ellipse cx="0" cy="8" rx="10" ry="8"/><circle cx="-10" cy="-6" r="4"/><circle cx="0" cy="-10" r="4"/><circle cx="10" cy="-6" r="4"/></g>
+ <g transform="translate(800 505)"><ellipse cx="0" cy="8" rx="10" ry="8"/><circle cx="-10" cy="-6" r="4"/><circle cx="0" cy="-10" r="4"/><circle cx="10" cy="-6" r="4"/></g>
+</g>
+<!-- bag & ball -->
+<rect x="300" y="400" width="140" height="70" rx="14" fill="#5FB3A1"/><path d="M335 400 Q370 360 405 400" fill="none" stroke="#3F8F7E" stroke-width="8"/>
+<circle cx="880" cy="490" r="26" fill="#E9A36B"/><path d="M858 478 Q880 492 902 478" stroke="#fff" stroke-width="4" fill="none"/>
+<!-- wheels -->
+<rect x="210" y="650" width="120" height="50" rx="14" fill="#25313A"/><rect x="870" y="650" width="120" height="50" rx="14" fill="#25313A"/>
+</svg>

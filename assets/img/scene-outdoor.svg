@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Illustration: washable underpad used as a waterproof picnic and camping mat on the grass">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE4F3"/><stop offset="1" stop-color="#F7EEE2"/></linearGradient>
+ <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9D3A5"/><stop offset="1" stop-color="#86BE8A"/></linearGradient>
+ <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CC492"/><stop offset="1" stop-color="#6FAE7A"/></linearGradient>
+ <pattern id="quilt" width="56" height="28" patternUnits="userSpaceOnUse"><path d="M0 14 Q14 3 28 14 T56 14" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="2" stroke-dasharray="4 4"/></pattern>
+</defs>
+<rect width="1200" height="800" fill="url(#sky)"/>
+<circle cx="980" cy="150" r="70" fill="#FBE3CF"/><circle cx="980" cy="150" r="48" fill="#F4C99E"/>
+<g fill="#fff" opacity=".85"><ellipse cx="250" cy="140" rx="90" ry="26"/><ellipse cx="310" cy="125" rx="60" ry="24"/><ellipse cx="700" cy="100" rx="70" ry="20"/></g>
+<!-- hills -->
+<path d="M0 430 Q250 320 520 400 T1200 380 L1200 800 L0 800Z" fill="#BFDDBA"/>
+<path d="M0 500 Q300 420 650 480 T1200 470 L1200 800 L0 800Z" fill="url(#g1)"/>
+<!-- tent -->
+<g transform="translate(830 330)">
+ <path d="M0 170 L130 0 L260 170 Z" fill="#2F6E9E"/>
+ <path d="M130 0 L260 170 L200 170 Z" fill="#1D4C70"/>
+ <path d="M100 170 L130 70 L160 170 Z" fill="#F6EFE4"/>
+ <path d="M130 0 L130 -18" stroke="#1D4C70" stroke-width="5"/>
+</g>
+<!-- trees -->
+<g transform="translate(120 300)"><rect x="-8" y="90" width="16" height="90" fill="#8B6B4A"/><circle cx="0" cy="60" r="70" fill="#6FAE7A"/><circle cx="-35" cy="90" r="45" fill="#5E9E6B"/><circle cx="35" cy="95" r="45" fill="#5E9E6B"/></g>
+<path d="M0 560 Q400 520 800 560 T1200 560 L1200 800 L0 800Z" fill="url(#g2)"/>
+<!-- grass blades -->
+<g stroke="#5E9E6B" stroke-width="3" stroke-linecap="round">
+ <path d="M80 760 l-6 -24M90 760 l4 -26M520 780 l-5 -22M530 780 l6 -24M1080 770 l-6 -24M1090 770 l5 -22M200 700 l-4 -20M960 720 l4 -20"/>
+</g>
+<!-- picnic pad in perspective -->
+<ellipse cx="560" cy="690" rx="380" ry="40" fill="#000" opacity=".08"/>
+<path d="M260 560 L860 560 L960 690 L160 690 Z" fill="#8FD3BE"/>
+<path d="M260 560 L860 560 L960 690 L160 690 Z" fill="url(#quilt)"/>
+<path d="M260 560 L860 560 L960 690 L160 690 Z" fill="none" stroke="#3F8F7E" stroke-width="6" stroke-linejoin="round"/>
+<!-- folded corner showing waterproof back -->
+<path d="M860 560 L960 690 L900 690 Z" fill="#2F6E9E"/>
+<!-- water drops beaded on grass beside -->
+<g fill="#9CC7E6"><path d="M1010 640 c0 10 -8 14 -8 20 a8 8 0 0 0 16 0 c0 -6 -8 -10 -8 -20z"/><path d="M1050 680 c0 8 -6 11 -6 16 a6 6 0 0 0 12 0 c0 -5 -6 -8 -6 -16z"/></g>
+<!-- basket -->
+<g transform="translate(330 560)">
+ <rect x="0" y="0" width="150" height="80" rx="12" fill="#C9935E"/>
+ <path d="M0 20 H150 M0 45 H150" stroke="#A9773F" stroke-width="5"/>
+ <path d="M25 0 Q75 -70 125 0" fill="none" stroke="#A9773F" stroke-width="9"/>
+ <rect x="-6" y="-8" width="162" height="16" rx="8" fill="#E9A36B"/>
+</g>
+<!-- cups & fruit -->
+<rect x="560" y="590" width="34" height="46" rx="6" fill="#fff"/><rect x="610" y="598" width="34" height="40" rx="6" fill="#fff"/>
+<circle cx="700" cy="625" r="20" fill="#E07A5F"/><circle cx="735" cy="630" r="17" fill="#F2B84B"/>
+<!-- rolled sleeping bag -->
+<g transform="translate(760 590)"><rect width="120" height="56" rx="28" fill="#1D4C70"/><circle cx="120" cy="28" r="28" fill="#2F6E9E"/><circle cx="120" cy="28" r="10" fill="#9CC7E6"/></g>
+</svg>

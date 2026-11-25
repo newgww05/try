@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Illustration: puppy resting on a washable pad inside an open dog crate">
+<defs>
+ <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3EDE4"/><stop offset="1" stop-color="#EDE4D7"/></linearGradient>
+ <linearGradient id="pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9B4BD"/><stop offset="1" stop-color="#8E9BA6"/></linearGradient>
+ <pattern id="quilt" width="54" height="27" patternUnits="userSpaceOnUse"><path d="M0 13 Q13 3 27 13 T54 13" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="2" stroke-dasharray="4 4"/></pattern>
+</defs>
+<rect width="1200" height="800" fill="url(#wall)"/>
+<rect y="590" width="1200" height="210" fill="#D9C3A5"/>
+<g stroke="#C9AF8C" stroke-width="3"><path d="M0 640 H1200 M0 700 H1200 M0 760 H1200"/><path d="M180 590 V640 M520 640 V700 M860 590 V640 M300 700 V760 M760 700 V760 M1040 640 V700"/></g>
+<!-- window light -->
+<path d="M840 90 h240 v300 h-240z" fill="#DCEBF5"/><path d="M840 240 h240 M960 90 v300" stroke="#F3EDE4" stroke-width="10"/>
+<!-- plant -->
+<g transform="translate(110 470)"><rect x="-38" y="60" width="76" height="70" rx="10" fill="#E9A36B"/><path d="M0 60 C-60 0 -40 -60 0 -80 C40 -60 60 0 0 60z" fill="#6FAE7A"/><path d="M0 60 C-90 30 -110 -10 -70 -40 M0 60 C90 30 110 -10 70 -40" stroke="#5E9E6B" stroke-width="14" fill="none" stroke-linecap="round"/></g>
+<ellipse cx="610" cy="672" rx="420" ry="34" fill="#000" opacity=".09"/>
+<!-- crate back panel -->
+<rect x="250" y="250" width="720" height="400" rx="14" fill="none" stroke="#4A5864" stroke-width="10"/>
+<g stroke="#4A5864" stroke-width="6" opacity=".55"><path d="M310 250 V650 M370 250 V650 M430 250 V650 M490 250 V650 M550 250 V650 M610 250 V650 M670 250 V650 M730 250 V650 M790 250 V650 M850 250 V650 M910 250 V650"/><path d="M250 330 H970 M250 410 H970 M250 490 H970"/></g>
+<!-- pad on crate floor -->
+<path d="M262 560 L958 560 L958 640 L262 640 Z" fill="url(#pad)"/>
+<path d="M262 560 L958 560 L958 640 L262 640 Z" fill="url(#quilt)"/>
+<path d="M262 640 H958" stroke="#2F6E9E" stroke-width="6"/>
+<!-- open door -->
+<g transform="translate(970 250)"><path d="M0 0 L170 70 L170 450 L0 400 Z" fill="none" stroke="#4A5864" stroke-width="10" stroke-linejoin="round"/><g stroke="#4A5864" stroke-width="6" opacity=".55"><path d="M42 18 V412 M85 35 V425 M128 53 V437"/><path d="M0 100 L170 165 M0 200 L170 260 M0 300 L170 355"/></g></g>
+<!-- puppy lying -->
+<g transform="translate(560 520)">
+ <ellipse cx="40" cy="78" rx="190" ry="16" fill="#000" opacity=".12"/>
+ <path d="M-120 70 Q-140 -10 -40 -20 L120 -20 Q190 -10 180 70 Z" fill="#E2AE77"/>
+ <path d="M-120 70 Q-140 30 -100 20" fill="none" stroke="#D9A066" stroke-width="22" stroke-linecap="round"/>
+ <circle cx="170" cy="-10" r="62" fill="#E9BB86"/>
+ <path d="M130 -60 Q100 0 125 40 Q150 0 130 -60z" fill="#B97B43"/>
+ <path d="M215 -55 Q250 0 222 38 Q200 0 215 -55z" fill="#B97B43"/>
+ <ellipse cx="185" cy="20" rx="32" ry="22" fill="#F4D6B0"/>
+ <circle cx="196" cy="10" r="9" fill="#2A2A2A"/>
+ <path d="M150 -14 q10 8 20 0 M196 -14 q10 8 20 0" stroke="#2A2A2A" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <path d="M60 62 h60 M-10 62 h50" stroke="#D9A066" stroke-width="18" stroke-linecap="round"/>
+</g>
+<!-- toy & bowl -->
+<g transform="translate(360 560)"><path d="M-30 0 h60" stroke="#5FB3A1" stroke-width="16" stroke-linecap="round"/><circle cx="-34" cy="0" r="14" fill="#5FB3A1"/><circle cx="34" cy="0" r="14" fill="#5FB3A1"/></g>
+<g transform="translate(1110 650)"><ellipse cx="0" cy="0" rx="60" ry="18" fill="#2F6E9E"/><path d="M-60 0 Q-55 -30 0 -32 Q55 -30 60 0" fill="#3E86BD"/></g>
+</svg>
