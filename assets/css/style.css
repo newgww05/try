@@ -414,3 +414,11 @@ header.site .wrap{min-width:0}
 .foot-contact em{font-style:normal;margin-left:8px;padding:2px 8px;border-radius:99px;background:#24323d;color:#9FD3C6;font-size:.78rem}
 .foot-contact .fc-quote{color:#fff;font-weight:600}
 @media (max-width:640px){.foot-contact{gap:10px 22px}}
+
+/* ---------- Inquiry form (direct send) ---------- */
+.hp-field{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.form input.invalid,.form select.invalid,.form textarea.invalid{border-color:#D14343;box-shadow:0 0 0 4px rgba(209,67,67,.12)}
+.form-msg{display:none;border-radius:12px;padding:14px 16px;font-size:.92rem}
+.form-msg.error{display:block;background:#FCECEC;color:#9B2C2C}
+.form-msg.success{display:block;background:var(--mint-soft);color:#24604F;font-weight:500}
+.form-msg a{color:inherit;text-decoration:underline}

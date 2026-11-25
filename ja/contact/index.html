@@ -45,16 +45,18 @@
 <span class="eyebrow">お問い合わせ</span><h1>見積もりを依頼</h1><p class="lead">計画中の内容をお聞かせください。製品担当者が1営業日以内に仕様書と数量別価格をご返信します。</p></div></div></section>
 <section class="block" style="padding-top:20px"><div class="wrap split" style="align-items:start">
 <form class="form card" id="rfq" novalidate="">
-<div><label for="n">お名前 *</label><input autocomplete="name" id="n" name="Name" required=""/></div>
-<div><label for="c">会社名 *</label><input autocomplete="organization" id="c" name="Company" required=""/></div>
-<div><label for="e">業務用メールアドレス *</label><input autocomplete="email" id="e" name="Email" required="" type="email"/></div>
-<div><label for="co">国 / 市場 *</label><select id="co" name="Market" required=""><option value="">選択してください…</option><option>アメリカ / カナダ</option><option>ドイツ / オーストリア</option><option>イギリス</option><option>フランス</option><option>その他のEU</option><option>日本</option><option>オーストラリア / ニュージーランド</option><option>その他</option></select></div>
-<div><label for="t">業種</label><select id="t" name="Business type"><option>Amazon / ECブランド</option><option>医療用品卸</option><option>小売 / ドラッグストアチェーン</option><option>介護施設 / 病院グループ</option><option>ペット用品ブランド</option><option>その他</option></select></div>
-<div><label for="q">年間見込み数量</label><select id="q" name="Quantity"><option>1,000–5,000 枚</option><option>5,000–20,000 枚</option><option>20,000–100,000 枚</option><option>100,000 枚以上</option></select></div>
+<div><label for="n">お名前 *</label><input autocomplete="name" id="n" name="name" required=""/></div>
+<div><label for="c">会社名 *</label><input autocomplete="organization" id="c" name="company" required=""/></div>
+<div><label for="e">業務用メールアドレス *</label><input autocomplete="email" id="e" name="email" required="" type="email"/></div>
+<div><label for="ph">電話 / WhatsApp *</label><input autocomplete="tel" id="ph" name="phone" placeholder="+49 151 2345 6789" required="" type="tel"/></div>
+<div><label for="co">国 / 市場 *</label><select id="co" name="country" required=""><option value="">選択してください…</option><option>アメリカ / カナダ</option><option>ドイツ / オーストリア</option><option>イギリス</option><option>フランス</option><option>その他のEU</option><option>日本</option><option>オーストラリア / ニュージーランド</option><option>その他</option></select></div>
+<div><label for="t">業種</label><select id="t" name="btype"><option>Amazon / ECブランド</option><option>医療用品卸</option><option>小売 / ドラッグストアチェーン</option><option>介護施設 / 病院グループ</option><option>ペット用品ブランド</option><option>その他</option></select></div>
+<div><label for="q">年間見込み数量</label><select id="q" name="quantity"><option>1,000–5,000 枚</option><option>5,000–20,000 枚</option><option>20,000–100,000 枚</option><option>100,000 枚以上</option></select></div>
 <div class="full"><label>希望サイズ</label><div class="chips"><label><input name="S-18x24" type="checkbox" value="yes"/>18×24 in</label><label><input name="S-34x36" type="checkbox" value="yes"/>34×36 in</label><label><input name="S-34x52" type="checkbox" value="yes"/>34×52 in</label><label><input name="S-36x60" type="checkbox" value="yes"/>36×60 in</label><label><input name="S-34x76" type="checkbox" value="yes"/>34×76 in</label><label><input name="S-wings" type="checkbox" value="yes"/>ウイング付き</label><label><input name="S-oversize" type="checkbox" value="yes"/>大判</label><label><input name="S-75x90" type="checkbox" value="yes"/>75×90 cm</label><label><input name="S-90x60" type="checkbox" value="yes"/>90×60 cm</label><label><input name="S-custom" type="checkbox" value="yes"/>カスタム</label></div></div>
-<div class="full"><label for="m">プロジェクトの詳細</label><textarea id="m" name="Message" placeholder="目標販売価格、グレード、カラー、包装、スケジュールなど…"></textarea></div>
+<div class="full"><label for="m">プロジェクトの詳細 *</label><textarea id="m" name="message" placeholder="目標販売価格、グレード、カラー、包装、スケジュールなど…" required=""></textarea></div>
 <div class="full"><button class="btn btn-primary" type="submit">送信する <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button> <span class="small muted">お客様の情報を第三者と共有することはありません。</span></div>
-<div class="full form-ok">ありがとうございます。メールソフトが依頼内容とともに開きました。開かない場合は <a href="mailto:info@velcura.top">info@velcura.top</a> までご連絡ください。</div>
+<input aria-hidden="true" autocomplete="off" class="hp-field" name="website" tabindex="-1" type="text"/>
+<div aria-live="polite" class="full form-msg" id="form-msg" role="alert"></div>
 </form>
 <div>
 <div class="card rv" style="margin-bottom:20px"><span class="ico blue"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5M10 13h6M10 17h6"></path></svg></span><h3>お送りする資料</h3><ul class="checks"><li>推奨仕様の仕様書</li><li>数量・インコタームズ別の価格表</li><li>最小ロットと納期</li><li>認証・試験報告書の一覧</li></ul></div>
