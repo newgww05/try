@@ -513,3 +513,15 @@ footer.site li.certs-li .cert-badges span{font-size:.72rem;padding:4px 8px}
 .r-text .more{align-items:center;gap:6px;font-weight:600}
 .r-text .more svg,.r-text .btn svg{width:16px;height:16px;flex:none}
 .r-thumbs.n1 img,.r-thumbs.n2 img{aspect-ratio:4/3}
+/* pet pad range: overview grid */
+.pr-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.pr-cell{display:block;color:inherit;text-decoration:none}
+.pr-cell figure{margin:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s}
+.pr-cell:hover figure{transform:translateY(-3px)}
+.pr-cell img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;background:#fff}
+.pr-cell figcaption{padding:6px 8px 9px;font-size:.8rem;line-height:1.3;text-align:center}
+.pr-cell figcaption b{display:block;color:var(--brand-deep);font-size:.78rem}
+.pr-cell figcaption span{color:var(--ink-2)}
+.r-row[id]{scroll-margin-top:90px}
+@media (max-width:1020px){.pr-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:640px){.pr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
